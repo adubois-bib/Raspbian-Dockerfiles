@@ -1,0 +1,13 @@
+FROM scratch
+
+MAINTAINER Arnaud Dubois <adubois.personnel@gmail.com>
+
+LABEL name="Docker build of Raspbian 11 Bullseye arm64"
+
+ADD bullseye-arm64-ext4 /
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update && apt upgrade -y -o DPkg::Options::="--force-confnew" 
+
+CMD ["/bin/bash"]

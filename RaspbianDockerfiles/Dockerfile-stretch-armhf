@@ -1,0 +1,15 @@
+FROM scratch
+
+MAINTAINER Arnaud Dubois <adubois.personnel@gmail.com>
+
+LABEL name="Docker build of Raspbian 9 Stretch armhf"
+
+ADD stretch-armhf-ext4 /
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN sed -i -e 's\raspbian.raspberrypi.org\legacy.raspbian.org\g' /etc/apt/sources.list
+
+RUN apt update && apt upgrade -y 
+
+CMD ["/bin/bash"]

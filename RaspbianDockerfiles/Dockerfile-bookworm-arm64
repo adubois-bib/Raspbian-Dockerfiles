@@ -1,0 +1,15 @@
+FROM scratch
+
+MAINTAINER Arnaud Dubois <adubois.personnel@gmail.com>
+
+LABEL name="Docker build of Raspbian 12 Bookworm arm64"
+
+#ADD bookworm-arm64-ext4 /
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN chmod -R 777 /var/cache/man
+
+RUN apt -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update && apt upgrade -y  
+
+CMD ["/bin/bash"]

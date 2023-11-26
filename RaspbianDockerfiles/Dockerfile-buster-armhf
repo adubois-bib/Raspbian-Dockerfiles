@@ -1,0 +1,15 @@
+FROM scratch
+
+MAINTAINER Arnaud Dubois <adubois.personnel@gmail.com>
+
+LABEL name="Docker build of Raspbian 10 Buster armhf"
+
+ADD buster-armhf-ext4 /
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN sed -i -e 's\raspbian.raspberrypi.org\mirrordirector.raspbian.org\g' /etc/apt/sources.list
+
+RUN apt update --allow-releaseinfo-change && apt upgrade -y 
+
+CMD ["/bin/bash"]
