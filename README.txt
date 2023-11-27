@@ -1,8 +1,10 @@
 Linux scripts !
 
-Le "programme" est divisé en deux parties des fichiers "env*.sh" qui contiennent les variables, le lien de download de l'archive depuis le repo raspberry, qui unzip/unxz l'archive contenant l'image puis qui appelle le programme principal build.sh.
+Le "programme" est divisé en deux parties 
 
-build .sh monte les 2 partitions contenues dans l'image dans des répertoires dédiés (avec kpartx) puis lance le build de l'image (copie du répertoire ext4, apt update, upgrade et install, install des certificats Bibendum) push, umount les répertoires et supprime les répertoires temporaires et les fichiers img.
+- Des fichiers "env*.sh" qui contiennent les variables, le lien de download de l'archive depuis le repo raspberry, qui unzip/unxz l'archive contenant l'image puis qui appelle le programme principal build.sh.
+
+- build .sh monte les 2 partitions contenues dans l'image dans des répertoires dédiés (avec kpartx) puis lance le build de l'image (copie du répertoire ext4, apt update, upgrade et install, install des certificats Bibendum) push, umount les répertoires et supprime les répertoires temporaires et les fichiers img.
 
 Ca se lance simplement comme ça : sudo ./env-bullseye-arm64.sh
 
